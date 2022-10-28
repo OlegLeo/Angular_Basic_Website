@@ -1,0 +1,79 @@
+
+
+<mat-form-field appearance="standard">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="" #input>
+  </mat-form-field>
+
+
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+    
+    <!--
+         
+         <ng-container matColumnDef="imageUrl">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element"> <img style="height: 75px;" src="{{element.imageUrl}}" /> </td>
+        </ng-container>-->
+    
+        
+        <!-- Name Column -->
+        <ng-container matColumnDef="element.position">
+            <th mat-header-cell *matHeaderCellDef> Position </th>
+            <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+        </ng-container>
+        
+        <!-- Weight Column -->
+        <ng-container matColumnDef="element.Driver.nationality">
+            <th mat-header-cell *matHeaderCellDef>Nationality</th>
+            <td mat-cell *matCellDef="let element"> {{element.Driver.nationality}} </td>
+        </ng-container>
+        
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="element.Driver.givenName">
+            <th mat-header-cell *matHeaderCellDef> Driver's Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.Driver.givenName}} </td>
+        </ng-container>
+
+         <!-- Symbol Column -->
+         <ng-container matColumnDef="element.Driver.familyName">
+            <th mat-header-cell *matHeaderCellDef> Family Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.Driver.familyName}} </td>
+            </ng-container>
+
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="element.Constructors.name">
+            <th mat-header-cell *matHeaderCellDef> Team </th>
+            <td mat-cell *matCellDef="let element"> {{element.Constructors.name}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="element.points">
+                <th mat-header-cell *matHeaderCellDef> Points </th>
+                <td mat-cell *matCellDef="let element"> {{element.points}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="actions">
+                    <mat-header-cell  *matHeaderCellDef> </mat-header-cell>
+                    <mat-cell *matCellDef="let element" >
+                        <button  style="height: 50px;" mat-button (click)="openDetails(element)">Details</button>
+                        
+                        <button style="height: 50px; margin-left: 25px ;" mat-button (click)="deleteElement(element)">Delete</button></mat-cell>
+                  </ng-container>
+                
+        
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        
+    </table>
+
+
+<mat-paginator [pageSizeOptions]="[6, 12, 24]"
+                 showFirstLastButtons 
+                 aria-label="Select pages">
+</mat-paginator>
+</div>
+
+<div *ngIf="shouldShow">
+    <app-driver-detail [element]="selectedDriver"></app-driver-detail>
+</div>

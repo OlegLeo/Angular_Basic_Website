@@ -1,0 +1,13 @@
+<mat-card>
+    <mat-card-title style="text-align: center;"> Team's Details
+    </mat-card-title>
+    <br>
+    <div style="text-align: center;">
+<h3><strong>Name:</strong> {{driver.Constructors.name}} </h3>
+<h3><strong>Manufacturer:</strong> {{driver.Constructors.nationality}} </h3>
+<h3><strong>More information: </strong> 
+    <a mat-raised-button href="{{driver.Constructors.url}}" target="_blank">{{driver.Constructors.url}}</a>
+</h3>
+
+</div>
+</mat-card>

@@ -1,0 +1,32 @@
+
+<mat-card>
+  <br>
+  <br>
+  <mat-card-title style="text-align: center;"> Driver's Details
+  </mat-card-title>
+  <br>
+  <br>
+<div style="text-align: center;">
+<h3><strong>Name: </strong> {{element.Driver.givenName}} {{element.Driver.familyName}}</h3>
+
+
+<!-- <input type="button" (click)="GoToBrand(element.Constructors.name)" value="{{element.Constructors.name}}" -->
+<h3><strong>Birth: </strong> {{element.Driver.dateOfBirth | date:'EEEE, MMMM d, y'}}</h3>
+
+<h3><strong>Team:</strong> <a mat-raised-button href="http://localhost:4200/team/{{element.Constructors.name}}" target="_blank"> {{element.Constructors.name}}</a>
+</h3>
+
+<h3><strong>Permanent Number: </strong> {{element.Driver.permanentNumber}}</h3>
+
+<h3><strong>wins: </strong> {{element.wins}}</h3>
+
+
+<h3>
+    <div class="example-button-row" >
+      <a mat-raised-button style="margin-left: 710px;" href="{{element.Driver.url}}" target="_blank">Biography</a>
+    </div>
+  </h3>
+</div>
+  
+</mat-card>
+
